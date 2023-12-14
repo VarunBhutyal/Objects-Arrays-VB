@@ -22,10 +22,15 @@
     // 🧠 The function buildPeter builds an object of a certain shape and returns it.
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
-    
-    // vb edit check 
+  
     function buildPeter() {
-
+      let objChl1 = {
+        firstName: "Peter",
+        lastName: "Pan",
+        age: 12
+      }
+      return objChl1
+       
     }
 
     // 👉 CHALLENGE 2
@@ -33,7 +38,13 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+      let objChl2 = {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+      };
+      return objChl2
+        
     }
 
     // 👉 CHALLENGE 3
@@ -44,8 +55,18 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(objChl3) {
+      let priceDeleted = false;
+      for (let key in objChl3) {
+        if (key === "price") {
+          delete objChl3.price;
+          priceDeleted = true;
+        }   
+      } 
+      if (!priceDeleted) {
+        objChl3.priceless = true;
+      }
+      return objChl3;
     }
 
     // 👉 CHALLENGE 4
@@ -55,7 +76,12 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      // let arrLength = arr.length 
+      if (arr.length % 2 === 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
 
     // 👉 CHALLENGE 5
@@ -64,8 +90,12 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(firstArg, secondArg) {
+      if (secondArg) {
+        return firstArg[0];
+      } else {
+        return firstArg[firstArg.length-1];
+      }
     }
 
     // 👉 CHALLENGE 6
@@ -74,8 +104,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(firstArg, secondArg) {
+      firstArg[firstArg.length] = secondArg;
+      return firstArg;
     }
 
     // 👉 CHALLENGE 7
@@ -90,8 +121,16 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(argString) {
+      let newString = argString.split("");
+      let strWihoutX=[];
+      for (let index in newString) {
+        if (newString[index] !== "x") {
+          strWihoutX[strWihoutX.length]= newString[index]
+        }
+      }
+      strWihoutX = strWihoutX.join("");
+      return strWihoutX;
     }
 
     // 👉 CHALLENGE 8
@@ -103,8 +142,16 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(argString,argChar) {
+      let strNewString = argString.split("");
+      let strWithoutChar = [];
+      for (let index in strNewString) {
+        if (strNewString[index] !== argChar) {
+          strWithoutChar[strWithoutChar.length] = strNewString[index];
+        }
+      }
+      strWithoutChar = strWithoutChar.join("");
+      return strWithoutChar;
     }
 
     // 👉 CHALLENGE 9
@@ -116,8 +163,18 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
+    function getProps(argObj) {
+      let chl9Array = [];
+      for (let key in argObj) {
+        // if ((argObj[key] !== "age") && (argObj[key] !== "married")) {
+        //   chl9Array[chl9Array.length]= key;
+        // }
+        if ((key !== "age") && (key !== "married")) {
+          chl9Array[chl9Array.length]= key;
+        }
 
+      }
+      return chl9Array;
     }
 
     // 🧪 TESTS, do not work below this line
